@@ -135,9 +135,7 @@ import { employeeLogin } from "../api/api";
 		cursor: pointer;
 		background-color: #a7f3c9;
 	  }
-	  &:hover {
-	    background-color: #a7f3c9;
-	  }
+
 	}
   
     form {
