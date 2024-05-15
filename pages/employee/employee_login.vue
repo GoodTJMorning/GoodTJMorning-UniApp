@@ -11,21 +11,26 @@
 		  backgroundColor="#a7f3c9"
 		></uni-nav-bar>
 		<view class="container">
-			<h1>Employee Login</h1>
+			<img src="@/image/img/logo-new.png" class="logo"/>
+
 			<form >
 				<view class="form-group">
-					<lable for="username">UserName: </lable>
+					<lable for="username">账号: </lable>
 					<input type="text" id="username" v-model="username" required>
 				</view>
 				<view class="form-group">
-					<label for="password">Password</label>
+					<label for="password">密码</label>
 					<input type="password" id="password" v-model="password" required>
 				</view>
-				<button type="submit" @click="login()" class="btn btn-primary">Login</button>
+				<button type="submit" @click="login()" class="btn btn-primary small-button">登录</button>
 			</form>
+			<hr/>
 			<view v-if="error" class="error">{{ error }}</view>
-			<h2>Employee QRcode</h2>
-			<button @click="showImage">我要赚钱</button>
+
+			<view class="contact-section">
+				<h2>联系管理员，加入楼长队伍！</h2>
+				<button @click="showImage">我要赚钱</button>
+			</view>
 		</view>
 		
 	</view>
@@ -62,6 +67,7 @@ import { employeeLogin } from "../api/api";
 					username : this.username,
 					password : this.password
 				}
+				
 				employeeLogin(params).then((res) => {
 					if (res.code === 1) {
 						console.log("success");
@@ -80,32 +86,94 @@ import { employeeLogin } from "../api/api";
 	}
 </script>
 
-<style lang='scss' scoped>
-	.employee-login {
-	  display: block;
-	  justify-content: center;
-	  align-items: center;
-	  height: 100%;
+<style lang="scss" scoped>
+.employee-login {
+  background-color: #f1fef7;
+  height: 100vh;
+  display: block;
+  align-items: center;
+  justify-content: center;
+
+  .container {
+    background: #f1fef7;
+    padding: 20px;
+    width: 90%;
+	height:81%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+	
+	.logo {
 	  width: 100%;
-	  background-color: #f5f5f5;
+	  height: 100px;
+	  margin: 0 auto 20px;
 	}
-	
-	.container {
-	  height: 100%;
-	  width: 80%;
-	  padding: 40px;
-	  background-color: #fff;
-	  border-radius: 8px;
-	  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	.small-button {
+	  padding: 5px;
+	  font-size: 1.2em;
 	}
-	
-	.form-group {
-	  margin-bottom: 40px;
+
+	hr {
+	  border: none;
+	  border-top: 1px solid #ddd;
+	  margin: 20px 0;
 	}
-	
-	.error {
-	  color: red;
-	  margin-top: 10px;
+
+	.contact-section {
+	  text-align: center;
+
+	  h2 {
+		margin-bottom: 15px;
+	  }
+
+	  button {
+		padding: 10px;
+		font-size: 1.1em;
+		color: black;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+		background-color: #a7f3c9;
+	  }
+	  &:hover {
+	    background-color: #a7f3c9;
+	  }
 	}
-	
+  
+    form {
+      display: flex;
+      flex-direction: column;
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+      }
+
+      input {
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+      }
+
+      button {
+        padding: 10px;
+        background-color: #148F77;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #45B39D;
+        }
+      }
+    }
+
+    .error {
+      color: red;
+      margin-top: 10px;
+    }
+  }
+}
 </style>
