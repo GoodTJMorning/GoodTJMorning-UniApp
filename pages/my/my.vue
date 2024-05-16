@@ -33,7 +33,6 @@
           v-if="recentOrdersList && recentOrdersList.length > 0"
         >
           <text class="order_line">最近订单</text>
-        </view>
         <order-list
           :scrollH="scrollH"
           @lower="lower"
@@ -46,6 +45,7 @@
           :loadingText="loadingText"
           :recentOrdersList="recentOrdersList"
         ></order-list>
+		</view>
       </view>
     </view>
   </view>
@@ -218,6 +218,12 @@ export default {
   .container {
     margin-top: 20rpx;
     height: calc(100% - 194rpx);
+  }
+  .recent{
+	  margin: 20rpx;
+	  padding: 10rpx;
+	  background-color: #f1fef7;
+	  border-radius: 20px;
   }
 }
 ::v-deep .uni-navbar--border {

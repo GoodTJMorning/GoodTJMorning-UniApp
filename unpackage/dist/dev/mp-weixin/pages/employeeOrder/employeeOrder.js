@@ -274,13 +274,13 @@ var _default = {
       orderListDelivery: [{
         orderId: '123',
         phoneNumber: '1234567890',
-        address: 'test',
-        customerName: '我实体'
+        address: '友圆8号楼',
+        customerName: '胡先生'
       }, {
         orderId: '789',
         phoneNumber: '1122334455',
-        address: 'test',
-        customerName: '你这的'
+        address: '友圆19号楼',
+        customerName: '李女士'
       }],
       orderListFinished: [{
         orderId: '456',
