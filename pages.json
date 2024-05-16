@@ -3,7 +3,7 @@
       "path": "pages/index/index",
       "style": {
         "navigationStyle": "custom",
-        "navigationBarTitleText": "苍穹外卖"
+        "navigationBarTitleText": "醒了么"
       }
     },
     {
@@ -95,7 +95,7 @@
       }
     },
     {
-    	"path" : "pages/employee/employee_login",
+    	"path" : "pages/employeeLogin/employee_login",
     	"style" : 
     	{
     		"navigationStyle": "custom",
@@ -105,13 +105,22 @@
     	}
     },
     {
-    	"path" : "pages/employee/employee_QRcode",
+    	"path" : "pages/employeeLogin/employee_QRcode",
     	"style" : 
     	{
     		"navigationBarTextStyle": "black",
     		"navigationBarTitleText": "管理员微信",
     		"navigationBarBackgroundColor": "#a7f3c9",
     		"backgroundColor": "#000000"
+    	}
+    },
+    {
+    	"path" : "pages/employeeOrder/employeeOrder",
+    	"style" : 
+    	{
+    		"navigationStyle": "custom",
+			"navigationBarTitleText": "楼长订单",
+    		"enablePullDownRefresh" : false
     	}
     }
     ],

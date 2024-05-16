@@ -160,7 +160,7 @@ export default {
 		this.setAddressBackUrl("/pages/my/my");
 		// TODO
 		uni.redirectTo({
-		  url: "/pages/employee/employee_login",
+		  url: "/pages/employeeLogin/employee_login",
 		});
 	},
     async oneOrderFun(id) {

@@ -67,10 +67,12 @@ import { employeeLogin } from "../api/api";
 					username : this.username,
 					password : this.password
 				}
-				
 				employeeLogin(params).then((res) => {
 					if (res.code === 1) {
 						console.log("success");
+						uni.navigateTo({
+							url:'/pages/employeeOrder/employeeOrder'
+						});
 					}
 					else {
 						this.error = '无效的用户名和密码'
@@ -79,7 +81,8 @@ import { employeeLogin } from "../api/api";
 			},
 			showImage() {
 			    uni.navigateTo({
-			        url: '/pages/employee/employee_QRcode'
+			        url: '/pages/employeeOrder/employeeOrder'
+					//'/pages/employee/employee_QRcode'
 			    });
 			}
 		}

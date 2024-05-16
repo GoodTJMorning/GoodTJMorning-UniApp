@@ -11,8 +11,9 @@
     "pages/my/my",
     "pages/addOrEditAddress/addOrEditAddress",
     "pages/historyOrder/historyOrder",
-    "pages/employee/employee_login",
-    "pages/employee/employee_QRcode"
+    "pages/employeeLogin/employee_login",
+    "pages/employeeLogin/employee_QRcode",
+    "pages/employeeOrder/employeeOrder"
   ],
   "subPackages": [],
   "window": {
