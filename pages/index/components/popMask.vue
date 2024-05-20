@@ -115,7 +115,7 @@ export default {
         display: flex;
         flex-wrap: wrap;
         .item {
-          border: 1px solid #ffb302;
+          border: 1px solid #a7f3c9;
           border-radius: 12rpx;
           margin: 20rpx 10rpx;
           padding: 0 26rpx;

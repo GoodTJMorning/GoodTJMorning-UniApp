@@ -14536,7 +14536,8 @@ var _default = {
         if (res.code === 1) {
           _this2.showConfirm = true;
           _this2.textTip = '您的催单信息已发出！';
-          _this2.$refs.status.$refs.commonPopup.open(val.type);
+          _this2.$refs.commonPopup.open(val.type);
+          // this.$refs.status.$refs.commonPopup.open(val.type)
           _this2.orderId = val.id;
         }
       });
@@ -14654,7 +14655,7 @@ var _default = {
       });
     },
     openPopuos: function openPopuos(type) {
-      this.$refs.status.$refs.commonPopup.open(type);
+      this.$refs.commonPopup.open(type);
     },
     // 联系商家进行退款弹层
     handleRefund: function handleRefund(type) {
@@ -14674,7 +14675,8 @@ var _default = {
     },
     // closePopupInfo
     closePopupInfo: function closePopupInfo(type) {
-      this.$refs.status.$refs.commonPopup.close(type);
+      this.$refs.commonPopup.close(type);
+      // this.$refs.status.$refs.commonPopup.close(type)
       this.getBaseData(this.orderId);
     },
     // 立即支付

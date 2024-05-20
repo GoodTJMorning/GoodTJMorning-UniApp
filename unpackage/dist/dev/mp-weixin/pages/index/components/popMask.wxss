@@ -69,7 +69,7 @@
   flex-wrap: wrap;
 }
 .more_norm_pop .items_cont .item_row .flavor_item .item.data-v-92d6e38c {
-  border: 1px solid #ffb302;
+  border: 1px solid #a7f3c9;
   border-radius: 12rpx;
   margin: 20rpx 10rpx;
   padding: 0 26rpx;
