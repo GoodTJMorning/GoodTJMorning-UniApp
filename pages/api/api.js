@@ -377,3 +377,9 @@ export const employeeLogin = (params) =>
 		params
 	})
 
+// 楼长订单查询
+export const DeliveryOrders = (param1, param2) =>
+	request({
+		url: `/user/employee/deliveryOrders?status=${param1}&employeeId=${param2}`,
+		method: 'GET'
+	})

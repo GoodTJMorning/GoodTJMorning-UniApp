@@ -26,7 +26,9 @@ const store = new Vuex.Store({
 		addressDataList: [], // 所有地址信息
 		addressDataMap: {},
 		deliveryFee: 0,// 配送费
-		gender: 0 // 收货地址对应的 性别  0 先生  1 女士
+		gender: 0 ,// 收货地址对应的 性别  0 先生  1 女士
+		employeeId: 0,	// 楼长ID
+		
 	},
 	mutations: {
 		setStoreInfo(state, provider) {
@@ -90,7 +92,11 @@ const store = new Vuex.Store({
 		// 设置性别
 		setGender(state, gender) {
 			state.gender = gender
-		}
+		},
+		// 设置楼长ID
+		setEmployeeId(state, id) {
+			state.employeeId = id
+		},
 	},
 	actions: {
 		fetchAddressData({ commit }) {

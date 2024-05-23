@@ -9,6 +9,7 @@
         <!-- 支付状态 -->
         <status ref="status" :timeout="timeout" :orderDetailsData="orderDetailsData" :rocallTime="rocallTime"
           @statusWord="statusWord" @paymentTime="paymentTime" @handlePay="handlePay" @handleReminder="handleReminder"
+		  @handleCancel="handleCancel" @oneMoreOrder="oneMoreOrder"
           @handleRefund="handleRefund"></status>
         <!-- end -->
         <!-- 订单详情 -->

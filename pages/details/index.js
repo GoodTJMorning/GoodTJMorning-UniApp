@@ -66,7 +66,7 @@ export default {
 		...mapState(['shopInfo', 'orderListData', 'shopPhone', 'orderData']),
 		// 获取订单详情
 		getBaseData(id) {
-			getOrderDetail(id).then(res => {
+			getOrderDetail(id).then((res) => {
 				if (res.code === 1) {
 					this.orderDetailsData = res.data
 					this.initdishListMut(this.orderDetailsData.orderDetailList)
@@ -79,7 +79,7 @@ export default {
 
 		// 催单
 		handleReminder(val) {
-			reminderOrder(val.id).then(res => {
+			reminderOrder(val.id).then((res) => {
 				if (res.code === 1) {
 					this.showConfirm = true
 					this.textTip = '您的催单信息已发出！'
@@ -91,12 +91,13 @@ export default {
 		},
 		// 取消订单接口
 		cancel(type, obj) {
-			cancelOrder(obj.id).then(res => {
+			cancelOrder(obj.id).then((res) => {
 				if (res.code === 1) {
 					this.isPayment = true
 					this.showConfirm = true
 					this.textTip = '您的订单已取消！'
-					this.$refs.status.$refs.commonPopup.open(type)
+					this.$refs.commonPopup.open(type)
+					// this.$refs.status.$refs.commonPopup.open(type)
 					this.orderId = obj.id
 				}
 			})
@@ -107,7 +108,8 @@ export default {
 				this.cancel(val.type, val.obj)
 			} else {
 				this.showConfirm = false
-				this.$refs.status.$refs.commonPopup.open(val.type)
+				this.$refs.commonPopup.open(val.type)
+				// this.$refs.status.$refs.commonPopup.open(val.type)
 				this.textTip = '请联系商家进行取消！'
 			}
 		},

@@ -33,10 +33,10 @@
 		  <table>
 			<tbody>
 			  <tr>
-				<td>订单号：{{ order.orderId }}</td>
-				<td>顾客名：{{ order.customerName }}</td>
+				<td>订单号：{{ order.orderNumber }}</td>
+				<td>顾客名：{{ order.consignee }}</td>
 				<td>手机号：{{ order.phoneNumber }}</td>
-				<td>派送地址：{{ order.address }}</td>
+				<td>派送地址：{{ order.campusName + order.buildingName + order.domitory }}</td>
 				<td><button @click="finished(order.orderId)">派送完成</button></td>
 			  </tr>
 			</tbody>
@@ -49,9 +49,11 @@
 		  <view class="box_order_lists" v-for="order in orderListFinished" :key="order.orderId">
 		  <table>
 			<tbody>
-				<td>订单号：{{ order.orderId }}</td>
+				<td>订单号：{{ order.orderNumber }}</td>
+				<td>顾客名：{{ order.consignee }}</td>
 				<td>手机号：{{ order.phoneNumber }}</td>
-				<td>订单状态：{{ order.status }}</td>
+				<td>派送地址：{{ order.campusName + order.buildingName + order.domitory }}</td>
+				<td>派送状态：{{ "已完成" }}</td>
 			</tbody>
 		  </table>
 		  </view>
@@ -61,9 +63,9 @@
 </template>
 
 <script>
-import { employeeLogin } from "../api/api";
+import { mapState } from "vuex";
+import { employeeLogin, DeliveryOrders } from "../api/api";
 export default {
-
     data() {
         return {
             activeTab: 0,
@@ -81,17 +83,65 @@ export default {
                 { label: '状态', prop: 'status', width: '200' },
             ],
             orderListDelivery: [
-                { orderId: '123', phoneNumber: '1234567890' , address: '友圆8号楼', customerName: '胡先生'},
-                { orderId: '789', phoneNumber: '1122334455' , address: '友圆19号楼', customerName:'李女士'},
-				
+                // { orderId: '123', phoneNumber: '1234567890' , address: '友圆8号楼', customerName: '胡先生'},
+                // { orderId: '789', phoneNumber: '1122334455' , address: '友圆19号楼', customerName:'李女士'},
             ],
             orderListFinished: [
-                { orderId: '456', phoneNumber: '0987654321', status: '已完成' },
-                { orderId: '321', phoneNumber: '6655443322', status: '已完成' },
+                // { orderId: '456', phoneNumber: '0987654321', status: '已完成' },
+                // { orderId: '321', phoneNumber: '6655443322', status: '已完成' },
             ],
         }
     },
+	computed: {
+		...mapState(["employeeId"]),
+	},
+	onLoad() {
+		this.getDeliveryOrder();
+	},
     methods: {
+		getDeliveryOrder() {
+			const params = {
+				status: 4,	// 4 为待配送，5 为已完成
+				employeeId: this.employeeId
+			}
+			DeliveryOrders(params.status, params.employeeId).then((res) => {
+				if (res.code === 1) {
+					console.log(res);
+					this.orderListDelivery = res.data.map(item => ({
+						orderId: item.id,
+						orderNumber: item.number,
+						phoneNumber: item.phone,
+						buildingName: item.buildingName,
+						campusName: item.campusName,
+						domitory: item.domitory,
+						consignee: item.consignee,
+						addressId: item.addressId,
+						status: item.status,
+					}));
+				}
+			});
+			params.status = 5;
+			DeliveryOrders(params.status, params.employeeId).then((res) => {
+				if (res.code === 1) {
+					console.log(res);
+					this.orderListFinished = res.data.map(item => ({
+						orderId: item.id,
+						orderNumber: item.number,
+						phoneNumber: item.phone,
+						buildingName: item.buildingName,
+						campusName: item.campusName,
+						domitory: item.domitory,
+						consignee: item.consignee,
+						addressId: item.addressId,
+						status: item.status,
+					}));
+				}
+			});
+		},
+		finished(id) {
+			
+		},
+		
         handleTabClick(e) {
             this.activeTab = e.index;
         },

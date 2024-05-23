@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapMutations } from "vuex";
 import uniNavBar from "@/components/uni-nav-bar/uni-nav-bar.vue";
 import { employeeLogin } from "../api/api";
 	export default {
@@ -57,6 +57,7 @@ import { employeeLogin } from "../api/api";
 			...mapState(["addressBackUrl"]),
 		},
 		methods: {
+			...mapMutations(["setEmployeeId"]),
 			goBack() {
 				uni.redirectTo({
 					url: this.addressBackUrl,
@@ -70,6 +71,7 @@ import { employeeLogin } from "../api/api";
 				employeeLogin(params).then((res) => {
 					if (res.code === 1) {
 						console.log("success");
+						this.setEmployeeId(res.data.id);
 						uni.navigateTo({
 							url:'/pages/employeeOrder/employeeOrder'
 						});
