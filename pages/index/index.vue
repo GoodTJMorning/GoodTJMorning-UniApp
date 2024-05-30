@@ -33,7 +33,8 @@
               <view class="word">醒了么为顾客打造专业的早餐外送餐饮</view>
               <view class="address">
                 <icon></icon>
-                {{ shopInfo().shopAddress || "商家店铺获取中.." }}
+                <!-- {{ shopInfo().shopAddress || "商家店铺获取中.." }} -->
+				上海市嘉定区安亭镇曹安公路4800号同济大学
               </view>
             </view>
             <view>

@@ -37,13 +37,14 @@ export default {
     // 处理姓名 如x先生
     cryptoName() {
       if (!this.orderDetailsData.consignee) return "";
-      if (this.orderDetailsData.sex == 0) {
-        // 男
-        return this.orderDetailsData.consignee.charAt(0) + "先生";
-      } else {
-        // 女
-        return this.orderDetailsData.consignee.charAt(0) + "女士";
-      }
+      // if (this.orderDetailsData.sex == 0) {
+      //   // 男
+      //   return this.orderDetailsData.consignee.charAt(0) + "先生";
+      // } else {
+      //   // 女
+      //   return this.orderDetailsData.consignee.charAt(0) + "女士";
+      // }
+	  return this.orderDetailsData.consignee;
     },
   },
 };

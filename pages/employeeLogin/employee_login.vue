@@ -83,8 +83,7 @@ import { employeeLogin } from "../api/api";
 			},
 			showImage() {
 			    uni.navigateTo({
-			        url: '/pages/employeeOrder/employeeOrder'
-					//'/pages/employee/employee_QRcode'
+			        url: '/pages/employeeLogin/employee_QRcode'
 			    });
 			}
 		}

@@ -13,7 +13,7 @@
           <view class="money"
             >￥<text>{{ orderDataInfo.orderAmount }}</text></view
           >
-          <view>{{ shopInfo().shopName }}-{{ orderDataInfo.orderNumber }}</view>
+          <view>订单号：{{ orderDataInfo.orderNumber }}</view>
         </view>
       </view>
       <view class="box payBox">

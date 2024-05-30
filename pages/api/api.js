@@ -383,3 +383,11 @@ export const DeliveryOrders = (param1, param2) =>
 		url: `/user/employee/deliveryOrders?status=${param1}&employeeId=${param2}`,
 		method: 'GET'
 	})
+
+// 楼长完成订单
+export const completeOrder = (params) =>
+	request({
+		url:`/user/employee/completeOrder/${params}`,
+		method: 'PUT',
+		params
+	})

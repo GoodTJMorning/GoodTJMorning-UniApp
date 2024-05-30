@@ -30,10 +30,10 @@
             v-if="!timeout && orderDetailsData.status === 1">
             立即支付
           </button>
-          <button class="new_btn btn" type="default" @click="handleReminder('center', orderDetailsData.id)"
+          <!-- <button class="new_btn btn" type="default" @click="handleReminder('center', orderDetailsData.id)"
             v-if="orderDetailsData.status === 2">
             催单
-          </button>
+          </button> -->
           <button class="new_btn" type="default" @click="handleRefund('center')" v-if="orderDetailsData.status == 5">
             申请退款
           </button>

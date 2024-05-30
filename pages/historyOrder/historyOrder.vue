@@ -56,10 +56,10 @@
                   v-if="item.status === 1 && getOvertime(item.orderTime) > 0">
                   去支付
                 </button>
-                <button class="new_btn btn" type="default" @click="handleReminder('center', item.id)"
+                <!-- <button class="new_btn btn" type="default" @click="handleReminder('center', item.id)"
                   v-if="item.status === 2">
                   催单
-                </button>
+                </button> -->
               </view>
             </view>
           </view>
@@ -108,7 +108,7 @@ export default {
       scrollH: 0,
       tabIndex: 0,
       // tabBars: ["全部订单", "待付款", "退款", "已完成", "派送中"],
-      tabBars: ["全部订单", "待付款", "退款"],
+      tabBars: ["全部订单", "待接单", "派送中", "已完成"],
       // 状态对应的接口和参数
       urlMap: {
         0: {
@@ -120,9 +120,13 @@ export default {
           key: "status",
         },
         2: {
-          fn: queryOrdersCheckStatus,
-          key: "payStatus",
+          fn: getOrderPage,
+          key: "status",
         },
+		3: {
+			fn : getOrderPage,
+			key: "status",
+		},
       },
       textTip: "",
       showConfirm: false,
@@ -192,6 +196,7 @@ export default {
           setTimeout(function () {
             uni.hideLoading();
           }, 100);
+
           this.recentOrdersList = this.recentOrdersList.concat(
             res.data.records
           );
@@ -224,14 +229,19 @@ export default {
       }
       this.tabIndex = index;
       if (index === 1) {
-        // 待付款
-        this.status = 1;
-        this.payStatus = 0
+        // 带接单
+        this.status = 2;
+        this.payStatus = 1;
       } else if (index === 2) {
-        // 退款
-        this.status = 6;
-        this.payStatus = 2
+        // 派送中
+        this.status = 5;
+        this.payStatus = 1;
       }
+	  else if (index == 3) {
+		  // 已完成
+		  this.status = 6;
+		  this.payStatus = 1;
+	  }
       else {
         // 全部
         this.status = "";

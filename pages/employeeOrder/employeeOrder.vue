@@ -64,7 +64,7 @@
 
 <script>
 import { mapState } from "vuex";
-import { employeeLogin, DeliveryOrders } from "../api/api";
+import { employeeLogin, DeliveryOrders, completeOrder } from "../api/api";
 export default {
     data() {
         return {
@@ -123,7 +123,7 @@ export default {
 			params.status = 5;
 			DeliveryOrders(params.status, params.employeeId).then((res) => {
 				if (res.code === 1) {
-					console.log(res);
+					// console.log(res);
 					this.orderListFinished = res.data.map(item => ({
 						orderId: item.id,
 						orderNumber: item.number,
@@ -139,7 +139,12 @@ export default {
 			});
 		},
 		finished(id) {
-			
+			completeOrder(id).then((res) => {
+				if (res.code === 1) {
+					// console.log(res);
+					this.getDeliveryOrder();
+				}
+			});
 		},
 		
         handleTabClick(e) {
