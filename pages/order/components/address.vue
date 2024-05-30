@@ -55,7 +55,7 @@ export default {
     },
     gender: {
       type: Number,
-      default: -1,
+      default: 0,
     },
     // 电话
     phoneNumber: {
@@ -101,7 +101,7 @@ export default {
   computed: {
     // 万先生
     cryptoName() {
-      if (this.$store.state.gender === 0) {
+      if (this.gender === 0) {
         // 男
         return this.nickName.charAt(0) + "先生";
       } else {

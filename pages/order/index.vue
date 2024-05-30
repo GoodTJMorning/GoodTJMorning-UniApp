@@ -28,6 +28,7 @@
           :newDateData="newDateData"
           :tabIndex="tabIndex"
           :selectValue="selectValue"
+		  :gender="gender"
           @change="change"
           @goAddress="goAddress"
           @dateChange="dateChange"
