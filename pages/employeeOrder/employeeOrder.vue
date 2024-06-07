@@ -37,6 +37,7 @@
 				<td>顾客名：{{ order.consignee }}</td>
 				<td>手机号：{{ order.phoneNumber }}</td>
 				<td>派送地址：{{ order.campusName + order.buildingName + order.domitory }}</td>
+				<td>备注信息：{{ order.remark }}</td>
 				<td><button @click="finished(order.orderId)">派送完成</button></td>
 			  </tr>
 			</tbody>
@@ -117,6 +118,7 @@ export default {
 						consignee: item.consignee,
 						addressId: item.addressId,
 						status: item.status,
+						remark: item.remark,
 					}));
 				}
 			});
@@ -134,6 +136,7 @@ export default {
 						consignee: item.consignee,
 						addressId: item.addressId,
 						status: item.status,
+						remark: item.remark,
 					}));
 				}
 			});

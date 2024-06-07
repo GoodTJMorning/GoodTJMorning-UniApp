@@ -249,7 +249,8 @@ var _default = {
               domitory: item.domitory,
               consignee: item.consignee,
               addressId: item.addressId,
-              status: item.status
+              status: item.status,
+              remark: item.remark
             };
           });
         }
@@ -268,7 +269,8 @@ var _default = {
               domitory: item.domitory,
               consignee: item.consignee,
               addressId: item.addressId,
-              status: item.status
+              status: item.status,
+              remark: item.remark
             };
           });
         }

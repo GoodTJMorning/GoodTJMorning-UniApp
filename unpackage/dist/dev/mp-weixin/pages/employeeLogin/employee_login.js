@@ -218,9 +218,22 @@ var _default = {
           uni.navigateTo({
             url: '/pages/employeeOrder/employeeOrder'
           });
-        } else {
-          _this.error = '无效的用户名和密码';
         }
+        // else {
+        // 	// return uni.showToast({
+        // 	//   title: "错误的用户名或密码",
+        // 	//   duration: 1000,
+        // 	//   icon: "none",
+        // 	// });
+        // 	console.log(res)
+        // 	console.log("登录失败")
+        // }
+      }).catch(function (error) {
+        uni.showToast({
+          title: "用户名或密码错误",
+          duration: 1000,
+          icon: "none"
+        });
       });
     },
     showImage: function showImage() {
